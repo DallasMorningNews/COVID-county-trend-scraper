@@ -23,7 +23,7 @@ Copy the `.env-example` file and rename it `.env`. Add your own `AWS_ACCESS_KEY`
 ------
 ## Editing the scraper
 
-This project uses zappa to upload and schedule the scraper to our AWS Lambda. After making changes to the scraper, run `pipenv run zappa update` to push those changes to Lambda. Scheduling is handled via the `zappa-settings.json` file. The `events` key is an array of events objects. The `service.handler` opject has an `expression` key that can either take a schedule in cron format or a rate (`rate(12 hours)`).
+This project uses zappa to upload and schedule the scraper to our AWS Lambda. After making changes to the scraper, run `pipenv run zappa update` to push those changes to Lambda. Scheduling is handled via the `zappa-settings.json` file. The `events` key is an array of events objects. The `service.handler` object has an `expression` key that can either take a schedule in cron format or a rate (`rate(12 hours)`).
 
 ------
 
