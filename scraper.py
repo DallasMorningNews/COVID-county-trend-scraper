@@ -121,7 +121,7 @@ def update_trends():
 
   slack = Slacker(os.environ.get('SLACK_TOKEN'))
   slack.chat.post_message(
-        '#feed-interactives',
+        '#feed-coronavirus-scrapers',
         slackMsg,
         as_user=False,
         icon_emoji='cardboardbox',
