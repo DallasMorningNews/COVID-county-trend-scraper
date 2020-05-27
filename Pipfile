@@ -1,0 +1,15 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+requests = "*"
+zappa = "*"
+sentry-sdk = "==0.14.3"
+slacker = "*"
+
+[requires]
+python_version = "3.7"

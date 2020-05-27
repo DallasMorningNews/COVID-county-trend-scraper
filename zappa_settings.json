@@ -1,0 +1,19 @@
+{
+    "production": {
+        "apigateway_enabled": false,
+        "app_function": "service.handler",
+        "aws_region": "us-east-1",
+        "events": [{
+          "function": "service.handler",
+          "expressions": ["rate(4 hours)"]
+        }],
+        "keep_warm": false,
+        "lambda_description": "gets daily new coronavirus cases on a 21 day trend for counties",
+        "manage_roles": false,
+        "profile_name": null,
+        "project_name": "dmn-county-coronavirus-trend",
+        "role_name": "lambda_basic_execution",
+        "runtime": "python3.7",
+        "s3_bucket": "dmn-lambda-deploys"
+    }
+}
