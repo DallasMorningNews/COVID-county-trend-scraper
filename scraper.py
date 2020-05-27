@@ -7,7 +7,7 @@ from slacker import Slacker
 import sentry_sdk
 sentry_sdk.init("https://5ca2e65fe06941a3b38932df7daa338a@o101507.ingest.sentry.io/5226049")
 
-TREND_DATA = 'https://s3.amazonaws.com/interactives.dallasnews.com/data-store/2020/coronavirus-county-trends.json'
+TREND_DATA = os.environ.get('TREND_DATA_FILE')
 
 DSHS_DASHBOARD = 'https://services5.arcgis.com/ACaLB9ifngzawspq/arcgis/rest/services/DSHS_COVID19_Cases_Service/FeatureServer/0/query?f=json&where=Positive%3C%3E0&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&orderByFields=Positive%20desc&resultOffset=0&resultRecordCount=254&resultType=standard&cacheHint=true'
 
@@ -16,7 +16,7 @@ DSHS_UPDATE_FILE = 'https://services5.arcgis.com/ACaLB9ifngzawspq/arcgis/rest/se
 # File to be used if manual entry of missed daily counts needs to occur. Note: This file is out of date
 # as soon as a subsequent successful run of the scraper occurs. To use, pull the TREND_DATA file and backfill
 # any missing days in each county's trend list
-DSHS_REPAIRED_FILE = "https://s3.amazonaws.com/interactives.dallasnews.com/data-store/2020/coronavirus-county-trends-repaired.json"
+DSHS_REPAIRED_FILE = os.environ.get('REPAIR_FILE')
 
 
 def calculate_averages(daily_values):
