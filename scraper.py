@@ -81,9 +81,15 @@ def update_trends():
   update_request = requests.get(DSHS_UPDATE_FILE)
   update_data = update_request.json()
   
-  # pulling last dshs update date
-  dshs_date = update_data['name'].replace('County', '')
 
+ # pulling last dshs update date
+  last_update = datetime.date.fromtimestamp(update_data['editingInfo']['lastEditDate']/1000) - datetime.timedelta(days=1)
+  #converting that date object into a list of year, month, date
+  update_string = last_update.strftime('%Y-%m-%d').split('-')
+  # constructing a MMDD string for our data object and comparisons
+  dshs_date = update_string[1] + update_string[2]
+
+  print(dshs_date)
   if (dshs_date != trend_data[0]['update_date']):
     for county in trend_data:
       county['update_date'] = dshs_date
