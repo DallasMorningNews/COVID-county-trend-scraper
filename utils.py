@@ -5,6 +5,7 @@ import os
 # Shouldn't need to touch any of this.
 # ----------------------------------------
 
+
 def upload_data_s3(data, output_file_path, file_type):
     s3 = boto3.resource('s3')
     bucket = s3.Bucket(os.environ.get('ROOT_BUCKET'))
