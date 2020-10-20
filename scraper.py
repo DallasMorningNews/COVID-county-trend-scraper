@@ -126,13 +126,13 @@ def update_trends():
 
 
   slack = Slacker(os.environ.get('SLACK_TOKEN'))
-  # slack.chat.post_message(
-  #       '#feed-coronavirus-scrapers',
-  #       slackMsg,
-  #       as_user=False,
-  #       icon_emoji='cardboardbox',
-  #       username='DSHS County Trend Scraper'
-  #       )
+  slack.chat.post_message(
+        '#feed-coronavirus-scrapers',
+        slackMsg,
+        as_user=False,
+        icon_emoji='cardboardbox',
+        username='DSHS County Trend Scraper'
+        )
 
   return(trend_data)
 
